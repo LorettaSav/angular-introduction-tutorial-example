@@ -1,0 +1,20 @@
+<main>
+  <header>
+    <img src="../assets/logo.svg" alt="fairhouse-logo" /> Fairhouse
+  </header>
+  <section>
+    <app-housing-list
+      [locationList]="housingLocationList"
+      (selectedLocationEvent)="updateSelectedLocation($event)"
+    >
+    </app-housing-list>
+    <article *ngIf="selectedLocation">
+      {{ selectedLocation.availableUnits }}
+      <p>{{ selectedLocation.city }}</p>
+      <img
+        src="{{ selectedLocation.photo }}"
+        alt="{{ selectedLocation.name }}"
+      />
+    </article>
+  </section>
+</main>
